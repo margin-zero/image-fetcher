@@ -10,9 +10,6 @@
     <!-- Turn OFF default phone number formatting in MS EDGE -->
     <meta name="format-detection" content="telephone=no">
 
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet">
-
     <!-- PLUGIN CSS -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/imagefetcher.css">
@@ -30,9 +27,26 @@
 
 <body>
  
-    <header class="game-header">
-        <h1>Image fetcher</h1>
-    </header>
+
+    <h1>Image fetcher</h1>
+
+    <section class="">
+        <fieldset>
+            <form id="url-form">
+                <input type="text" name="url" placeholder="input web page url...">
+                <input type="button" value="fetch images" id="fetchButton">
+            </form>
+        </fieldset>
+    </section>
+
+    <section id="fetched"></section>
+
+
+
+    <div id=”queryResultContainer”></div>
+
+
+
 
     <!-- jQuery and GameJS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
