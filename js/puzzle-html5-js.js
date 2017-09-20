@@ -1,49 +1,57 @@
-$(document).ready(function() {
-    $("#fetchButton").click(function(){
-        fetchImages();
-    });
-})
+// global variables
 
-//=================================================
+var puzzleArray = ["puzzle001.jpg","puzzle002.jpg"],
+    puzzleDirectory = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) +"/puzzles/";
+    puzzlePath = new String;
 
-function fetchImages() {
-    var sourceURL = $("#url-form :input[name='url']").val().replace("http://",""),
 
-    win = window.open('http://'+sourceURL, 'analizator');
+    alert(puzzleDirectory);
+
+    $(document).ready(puzzleRun);
+
+
+    function puzzleRun() {
+        
+        var i;
+
+        // add puzzle thumbnails into thumbnail container
+        for (i=0; i<puzzleArray.length;i++) {
+            $("#puzzleContainer>.puzzles").append("<img src='" + puzzleDirectory + puzzleArray[i] + "' class='puzzleThumbnail' alt='puzzle preview' />");
+        };
+
+
+
+        // assign event functions
+
+        $(".puzzleThumbnail").click(function() { puzzleThumbnailClick($(this))});
+
+        $("#controlNewPuzzle").click(puzzleNewClick);
+
+    }
+
+
+
+
+    // EVENT FUNCTIONS ====================================
+
+    function puzzleThumbnailClick($this) {
+
+        var canvas = document.getElementById("temporaryImage"),
+            context = canvas.getContext("2d"),
+            img = new Image;
+
+        img.onload = function() {
+            context.drawImage(img, 0, 0);
+        };
+
+        puzzlePath = puzzleDirectory + puzzleArray[$this.index()-1];
+
+        img.src = puzzlePath;
+
+        $("#puzzleContainer").hide();
+    }
+
     
-    if (win) {
-        //Browser has allowed it to be opened
-        win.focus();
-    } else {
-        //Browser has blocked it
-        alert('Please allow popups for this website');
-    };
-
-
-    win.focus();
-    $(win).load(function() {
-        alert('New Window is Ready');
-    });
-
-
-
-
-    //alert(sourceURL);
-
-    $("#fetched").empty();
-
-
-
-  //  $.get("http://www.mypage.com", function( my_var ) {
-  //      // my_var contains whatever that request returned
-  //  });
-}
-
-
-
-function noscript(strCode){
-    var html = $(strCode.bold()); 
-    html.find('script').remove();
-  return html.html();
- }
- 
+    function puzzleNewClick() {
+        $("#puzzleContainer").show();
+    }
