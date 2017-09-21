@@ -107,6 +107,11 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
                     });
                 };
             };
+
+            // scrambling elements
+            for (i=0; i<=50; i++) {
+                $("#scrambledElements").append($("#scrambledElements>canvas").eq(randomNumber(0,47)));
+            };
         };
 
 
@@ -147,4 +152,12 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
         event.preventDefault();
         var data = event.originalEvent.dataTransfer.getData("text");
         event.target.appendChild(document.getElementById(data));
+    }
+
+
+
+    // generic functions
+
+    function randomNumber(start, end) {
+        return Math.floor(Math.random() * (end - start + 1) + start);
     }
