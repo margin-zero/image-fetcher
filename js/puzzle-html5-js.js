@@ -38,9 +38,13 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
 
     function puzzleThumbnailClick($this) {
 
-        var canvas = document.getElementById("temporaryImage"),
+        // var canvas = document.getElementById("temporaryImage"),
+        var canvas = document.createElement("canvas"),
             context = canvas.getContext("2d"),
-            img = new Image;
+            img = new Image,
+            i;
+
+            $(canvas).prop({width: 800, height: 600});
 
         img.onload = function() {
             let imgW = img.naturalWidth,
@@ -58,7 +62,12 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
                 imgHeight = imgH;
                 imgWidth = parseInt((imgH*(4/3)),10);
             };
+            // drawing scaled and fitted image onto canvas element
             context.drawImage(img, imgOriginX, imgOriginY, imgWidth, imgHeight, 0, 0, 800, 600);
+
+            for (i=1; i<=48;i++) {
+                $("#finalImage").append("<div></div>");
+            }
         };
 
         puzzlePath = puzzleDirectory + puzzleArray[$this.index()-1];
