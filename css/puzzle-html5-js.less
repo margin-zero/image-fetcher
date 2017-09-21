@@ -1,6 +1,7 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 h1 {
@@ -48,6 +49,8 @@ h1 {
 
 #puzzleControls {
 
+    clear: both;
+
     a, a:link, a:visited, a:hover, a:active {
         font-size: 1.1rem;
         display: inline-block;
@@ -70,13 +73,19 @@ h1 {
 
 
 #puzzleTable {
-    background-color: lightgray;
+    background-color: #999999;
+
+    width: auto;
+    display: inline-block;
+    margin: 0 auto;
 
     #finalImage {
         padding: 0;
         width: 800px;
         height: 600px;
         background-color: #a9a9a9;
+        float: left;
+
         div {
             width: 100px;
             height: 100px;
@@ -94,9 +103,20 @@ h1 {
         }
 
     }
+
+    #scrambledElements {
+        padding: 20px;
+        overflow: auto;   
+        float: left;
+        width: 400px;
+        height: 600px; 
+        box-sizing: border-box;
+
+        canvas {
+            margin: 4px;
+        }
+    }
 }
 
-#scrambledElements {
 
-}
 
