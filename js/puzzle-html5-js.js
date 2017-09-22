@@ -192,8 +192,14 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
         };
 
         if (completed===48) {
-            alert("Puzzle completed!");
+           puzzleCompletedShow();
         };
+    }
+
+    function puzzleCompletedShow() {
+        $("#puzzleCompleted").show();
+        $("#puzzlePreviewImage").hide();
+        $("#puzzlePreview").show();
     }
 
     // generic functions
