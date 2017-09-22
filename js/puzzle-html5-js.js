@@ -31,7 +31,11 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
 
         $(".puzzleThumbnail").click(function() { puzzleThumbnailClick($(this))});
 
-        $("#controlNewPuzzle").click(puzzleNewClick);
+        $("#buttonNewPuzzle").click(puzzleNewClick);
+
+        $("#buttonShowPreview").click(puzzlePreviewShow);
+
+        $("#puzzlePreview, #puzzlePreviewImage").click(puzzlePreviewHide);
 
     }
 
@@ -133,6 +137,14 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
     
     function puzzleNewClick() {
         $("#puzzleContainer").show();
+    }
+
+    function puzzlePreviewHide() {
+        $("#puzzlePreview").hide();
+    }
+
+    function puzzlePreviewShow() {
+        $("#puzzlePreview").show();
     }
 
     function elementDrag(event) {
