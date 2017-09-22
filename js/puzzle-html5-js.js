@@ -160,6 +160,8 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
         event.preventDefault();
         var data = event.originalEvent.dataTransfer.getData("text");
         event.target.appendChild(document.getElementById(data));
+
+        checkComplete();
     }
 
     function scrambledElementsAllowDrop(event) {
@@ -174,6 +176,25 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
     }
 
 
+    // check if image is completed
+
+    function checkComplete() {
+        var i = 0,
+            completed = 0,
+            canvas;
+
+        for (i=0; i<=47; i++) {
+            if ($("#finalImage>div").eq(i).children().length > 0) {
+                if ($("#finalImage>div").eq(i).children().eq(0).attr("id") === ("element"+i)) {
+                    completed += 1;
+                };
+            };
+        };
+
+        if (completed===48) {
+            alert("Puzzle completed!");
+        };
+    }
 
     // generic functions
 
