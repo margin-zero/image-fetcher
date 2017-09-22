@@ -144,6 +144,8 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
     }
 
     function puzzlePreviewShow() {
+        $("#puzzleCompleted").hide();
+        $("#puzzlePreviewImage").show();
         $("#puzzlePreview").show();
     }
 
