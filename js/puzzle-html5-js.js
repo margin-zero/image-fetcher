@@ -15,6 +15,10 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
         
         var i;
 
+        // hide preview
+
+        //$("#puzzlePreview").hide();
+
         // add puzzle thumbnails into .puzzleContainer
         for (i=0; i<puzzleArray.length;i++) {
             $("#puzzleContainer>.puzzles").append("<div class='puzzleThumbnail'></div>");
@@ -38,7 +42,6 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
 
     function puzzleThumbnailClick($this) {
 
-        // var canvas = document.getElementById("temporaryImage"),
         var canvas = document.createElement("canvas"),
             context = canvas.getContext("2d"),
             img = new Image,
@@ -109,8 +112,8 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
             };
 
             // scrambling elements
-            for (i=0; i<=50; i++) {
-                $("#scrambledElements").append($("#scrambledElements>canvas").eq(randomNumber(0,47)));
+            for (i=0; i<=100; i++) {
+                $("#scrambledElements").append($("#scrambledElements>canvas").eq(randomNumber(0,23)));
             };
         };
 
@@ -120,6 +123,10 @@ var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
 
         img.src = puzzlePath;
 
+        // load choosen image into preview div
+        $("#puzzlePreviewImage").css("background-image","url('" + puzzlePath + "')");
+
+        // finally hide puzzle thumbnails
         $("#puzzleContainer").hide();
     }
 
