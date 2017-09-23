@@ -1,6 +1,6 @@
 // global variables
 
-var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg"],
+var puzzleArray = ["puzzle001.jpg","puzzle002.jpg","puzzle003.jpg","puzzle004.jpg","puzzle005.jpg","puzzle006.jpg"],
     puzzleDirectory = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) +"/puzzles/";
     puzzlePath = new String;
 
